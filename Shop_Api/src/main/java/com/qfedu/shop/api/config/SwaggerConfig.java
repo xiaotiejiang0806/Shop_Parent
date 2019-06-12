@@ -1,0 +1,25 @@
+package com.qfedu.shop.api.config;
+
+import org.springframework.context.annotation.Bean;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
+public class SwaggerConfig {
+    public ApiInfo createA(){
+        ApiInfo info=new ApiInfoBuilder().title("邻家邦-数据接口平台").
+                contact( new Contact("Java1901","http://1000phone.com","xingfei_work@163.com")).
+                description("实现一个邻家邦项目的数据接口").build();
+        return info;
+    }
+    @Bean//创建对象  修饰方法 方法的返回值必须是引用类型  对象存储在IOC容器
+    public Docket createDocket(){
+        Docket docket=new Docket(DocumentationType.SWAGGER_2).apiInfo(createA()).select().
+                apis(RequestHandlerSelectors.basePackage("com.qfedu.shop.api.controller")).build();
+        return docket;
+
+    }
+}
