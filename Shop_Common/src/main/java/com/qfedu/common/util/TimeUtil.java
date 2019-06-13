@@ -1,5 +1,6 @@
 package com.qfedu.common.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,6 +9,13 @@ public class TimeUtil {
     //  获取时间字符串
     public static String getTime(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = simpleDateFormat.format(new Date());
+        return format;
+    }
+
+    //  获取日期字符串
+    public static String getDate(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String format = simpleDateFormat.format(new Date());
         return format;
     }
@@ -34,5 +42,21 @@ public class TimeUtil {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH,months);
         return calendar.getTime();
+    }
+
+    /**
+     *  获取当日剩余的时间
+     * @return
+     */
+    public static int getLastSecond(){
+        Date currentDate = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date lastDate = simpleDateFormat.parse(getDate() + " 23:59:29");
+            return (int)((lastDate.getTime()-currentDate.getTime())/1000);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

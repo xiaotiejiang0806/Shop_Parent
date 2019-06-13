@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.common.msg.core.dao.MessageLogMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.common.msg.core.entity.MessageLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="mid" jdbcType="BIGINT" property="mid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, mid, createtime, ip, info
+  </sql>
+ 
+  <insert id="insert" parameterType="com.qfedu.common.msg.core.entity.MessageLog" useGeneratedKeys="true" keyProperty="id">
+    insert into messagelog (mid,createtime,
+      ip, info)
+    values (#{mid,jdbcType=BIGINT}, now(), 
+      #{ip,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR})
+  </insert>
+  
+  <select id="findAll" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"></include>
+  from messagelog
+  order by createtime desc
+</select>
+ 
+</mapper>
