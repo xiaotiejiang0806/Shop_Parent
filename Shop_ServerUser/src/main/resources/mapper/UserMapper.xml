@@ -84,4 +84,10 @@
     <include refid="Base_Column_List"></include>
     from user
   </select>
+
+  <select id="findUserByPhone" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from user where phone = #{phone}
+  </select>
 </mapper>

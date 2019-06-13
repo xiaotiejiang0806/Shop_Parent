@@ -19,4 +19,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<User> all();
+
+    User findUserByPhone(String phone);
 }

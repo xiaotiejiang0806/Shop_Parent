@@ -2,6 +2,7 @@ package com.qfedu.shop.server.user.service.impl;
 
 import com.qfedu.common.config.ProjectConfig;
 import com.qfedu.common.execption.UserException;
+import com.qfedu.common.util.EncryptionUtil;
 import com.qfedu.common.util.TimeUtil;
 import com.qfedu.common.vo.R;
 import com.qfedu.shop.entity.Cart;
@@ -43,6 +44,8 @@ public class UserServiceImpl implements UserService  {
 
 
         try {
+
+            user.setPassword(EncryptionUtil.RSAEnc(ProjectConfig.PASSRSAPRI,user.getPassword()));
             //  新增用户
             userMapper.insert(user);
             Integer id = user.getId();
@@ -80,6 +83,19 @@ public class UserServiceImpl implements UserService  {
 
     @Override
     public R all() {
+
         return R.setOK("ok",userMapper.all());
     }
+
+    @Override
+    public R checkPhone(String phone) {
+        User user = userMapper.findUserByPhone(phone);
+        if (user == null) {
+            return R.setOK("该手机号可用",null);
+        }else {
+            return R.setERROR("该号码已使用");
+        }
+    }
+
+
 }

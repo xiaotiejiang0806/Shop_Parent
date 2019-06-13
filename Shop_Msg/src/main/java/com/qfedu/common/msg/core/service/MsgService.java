@@ -10,4 +10,19 @@ public interface MsgService {
      * @return
      */
     public R sendMsg(Message message,String ip);
+
+    /**
+     *  核对验证码
+     * @param phone
+     * @param code
+     * @return
+     */
+    public R checkMsg(String phone,int code);
+
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
+    public R findByPage(int page);
 }

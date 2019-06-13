@@ -9,4 +9,6 @@ public interface UserService {
     R addUser(User user) throws UserException;
 
     R all();
+
+    R checkPhone(String phone);
 }

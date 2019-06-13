@@ -1,6 +1,8 @@
 package com.qfedu.common.msg.core.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.qfedu.common.config.ProjectConfig;
 import com.qfedu.common.model.ActiveCode;
 import com.qfedu.common.model.EmailMsg;
@@ -16,6 +18,10 @@ import com.qfedu.common.vo.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class MsgServiceImpl implements MsgService {
@@ -62,8 +68,8 @@ public class MsgServiceImpl implements MsgService {
                     SendMsgUtil.mobileQuery(message.getReceive(), code);
                     flag = 1;
                     //将信息放在redis中，一分钟的有效期
-                    jedisUtil.setex(ProjectConfig.SMSPRELIMIT+message.getReceive(),180,"短信发送限制");
-                    jedisUtil.setex(ProjectConfig.SMSPRELIMIT+message.getReceive(), TimeUtil.getLastSecond(),(count+1)+"");
+                    jedisUtil.setex(ProjectConfig.SMSPRELIMIT+message.getReceive(),60,"短信发送限制");
+                    jedisUtil.setex(ProjectConfig.SMSPREDAY+message.getReceive(), TimeUtil.getLastSecond(),(count+1)+"");
                     if (isflag){
                         jedisUtil.setex(ProjectConfig.SMSCODE+message.getReceive(),180,code+"");
                     }
@@ -101,7 +107,31 @@ public class MsgServiceImpl implements MsgService {
         return null;
     }
 
-    private R sendMessage(Message message, String ip){
-        return null;
+    @Override
+    public R checkMsg(String phone, int code) {
+        String key = ProjectConfig.SMSCODE + phone;
+        if (jedisUtil.exists(key)){
+            String s = jedisUtil.get(key);
+            if (s != null){
+                int i = Integer.parseInt(s);
+                if (i == code){
+                    return R.setOK("验证通过",null);
+                }else {
+                    return R.setERROR("验证码错误");
+                }
+            }
+        }
+        return R.setERROR("验证码已过期，请重新获取");
     }
+
+    @Override
+    public R findByPage(int page) {
+        PageHelper.startPage(page,5);
+        List<Message> all = messageMapper.findAll();
+        Map<String,Object> map = new HashMap<>();
+        map.put("data",all);
+        map.put("count",((Page)all).getTotal());
+        return R.setOK("ok",map);
+    }
+
 }

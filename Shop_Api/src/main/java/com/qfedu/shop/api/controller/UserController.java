@@ -28,4 +28,10 @@ public class UserController {
     public R all(){
         return userService.selectAll();
     }
+
+    @ApiOperation(value = "核对手机号",notes = "核对手机号是否已经使用")
+    @GetMapping("/api/checkphone.do")
+    public R checkPhone(String phone){
+      return   userService.check(phone);
+    }
 }

@@ -5,10 +5,7 @@ import com.qfedu.common.vo.R;
 import com.qfedu.shop.entity.User;
 import com.qfedu.shop.server.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -25,5 +22,10 @@ public class UserController {
     public R selectAll(){
         R all = userService.all();
         return all;
+    }
+
+    @GetMapping("/user/checkphone.do")
+    public R check(@RequestParam String phone){
+        return userService.checkPhone(phone);
     }
 }
