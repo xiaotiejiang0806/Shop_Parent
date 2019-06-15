@@ -45,6 +45,17 @@ public class TimeUtil {
     }
 
     /**
+     *  N分钟后
+     * @param min
+     * @return
+     */
+    public static Date getMin(int min){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE,min);
+        return calendar.getTime();
+    }
+
+    /**
      *  获取当日剩余的时间
      * @return
      */

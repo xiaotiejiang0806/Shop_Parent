@@ -905,4 +905,14 @@ public class JedisUtil {
             jedis.close();
         }
     }
+
+    /**
+     * 查询剩余时间
+     */
+
+    public Long ttl(String key){
+        Long ttl = getJedis().ttl(key);
+        return ttl;
+    }
+
 }

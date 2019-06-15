@@ -5,7 +5,5 @@ eureka:
 spring:
   application:
     name: ApiDataConsumer
-  main:
-    allow-bean-definition-overriding: true
 server:
-  port: 9801
+  port: 9802

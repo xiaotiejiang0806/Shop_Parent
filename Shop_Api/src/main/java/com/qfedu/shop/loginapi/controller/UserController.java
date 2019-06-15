@@ -1,7 +1,7 @@
-package com.qfedu.shop.api.controller;
+package com.qfedu.shop.loginapi.controller;
 
 import com.qfedu.common.vo.R;
-import com.qfedu.shop.api.service.UserService;
+import com.qfedu.shop.loginapi.service.UserService;
 import com.qfedu.shop.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -26,6 +26,12 @@ public class ProjectConfig {
     public static final String REDISHOST="47.100.180.226";
     public static final int REDISPORT=6380;
     public static final String REDISPASS="qfjava";
+    //登录相关
+    public static final String TOKENPHONE = "tokenphone";
+    public static final String TOKENJWT = "tokenjwt";
+    public static final String USERLOGINCOUNT = "userlogincount";
+    public static final String USERSD = "usersd";
+    public static final String TOKENHEAD = "usertoken";
 
     //短信相关
     //Redis常用的key的设置
@@ -46,6 +52,10 @@ public class ProjectConfig {
 
     //密码加密 采用RSA
     public static final String PASSRSAPUB ="MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALN4iAMA5E4mES+aCz91CFtFUNzMBefeKB1/0qWo8J7BNAshZId8HONO1KSDuNWxeeD1VC8Cg0CNbt9pDWU9cKcCAwEAAQ";
-   public static final String PASSRSAPRI= "MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAs3iIAwDkTiYRL5oLP3UIW0VQ3MwF594oHX/SpajwnsE0CyFkh3wc407UpIO41bF54PVULwKDQI1u32kNZT1wpwIDAQABAkAaV1+HKVNZEQdGuFJcTv4Z/1N+BMf9H0M+CSvOurwOYMdsGggaahPUvg5MAq7hrIjTYe3wEe3rVote+FG6a+tRAiEA+d9/y0tdn9dNSgZvQTk/dwxrdKVCU/fW4eK+ssE71y8CIQC33xqbYPKzsLJIsWApCX+Y9kPX347KFywPKz+IlVMgCQIhANpI6TcLq8qLJ7XXUTHFdS/m5aiNBhicllfW4Yj/Tet5AiB2lQI51wpvbLNuQka78I5D/f6/CES0fMFDfybYVUVo0QIhALY8Dy6AT7KK0sIWDE+siGIW4+lsMqBKFBhcgX1266TQ";
+    public static final String PASSRSAPRI= "MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAs3iIAwDkTiYRL5oLP3UIW0VQ3MwF594oHX/SpajwnsE0CyFkh3wc407UpIO41bF54PVULwKDQI1u32kNZT1wpwIDAQABAkAaV1+HKVNZEQdGuFJcTv4Z/1N+BMf9H0M+CSvOurwOYMdsGggaahPUvg5MAq7hrIjTYe3wEe3rVote+FG6a+tRAiEA+d9/y0tdn9dNSgZvQTk/dwxrdKVCU/fW4eK+ssE71y8CIQC33xqbYPKzsLJIsWApCX+Y9kPX347KFywPKz+IlVMgCQIhANpI6TcLq8qLJ7XXUTHFdS/m5aiNBhicllfW4Yj/Tet5AiB2lQI51wpvbLNuQka78I5D/f6/CES0fMFDfybYVUVo0QIhALY8Dy6AT7KK0sIWDE+siGIW4+lsMqBKFBhcgX1266TQ";
 
+
+   //JWT失效时间pub
+   public static final int JWTTIME = 30;
+   public static final String JWTKEY = "sshop";
 }

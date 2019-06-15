@@ -12,6 +12,7 @@
         <module>Shop_ServerUser</module>
         <module>Shop_Server</module>
         <module>Shop_Msg</module>
+        <module>Shop_LoginApi</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -43,6 +44,8 @@
         <lombok.version>1.16.20</lombok.version>
         <pagehelperboot.version>1.2.12</pagehelperboot.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
+        <jwt.version>3.8.1</jwt.version>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
     <!--2、版本限定 指定某个jar用指定的版本号-->
@@ -127,6 +130,20 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger-ui.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
 
 

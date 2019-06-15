@@ -1,4 +1,4 @@
-package com.qfedu.shop.api.service;
+package com.qfedu.shop.loginapi.service;
 
 import com.qfedu.common.vo.R;
 import com.qfedu.shop.entity.User;
