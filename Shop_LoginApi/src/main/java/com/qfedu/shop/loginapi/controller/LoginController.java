@@ -38,8 +38,8 @@ public class LoginController {
 
     @ApiOperation(value = "退出",notes = "退出当前程序")
     @PostMapping("/login/existLogin.do")
-    public R exsitLogin( String token){
-        R r = loginService.exsitLogin(token);
+    public R exsitLogin(HttpServletRequest request){
+        R r = loginService.exsitLogin(request.getHeader(ProjectConfig.TOKENHEAD));
         return r;
     }
 }

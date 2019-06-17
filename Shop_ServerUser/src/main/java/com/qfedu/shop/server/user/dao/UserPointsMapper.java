@@ -2,6 +2,7 @@ package com.qfedu.shop.server.user.dao;
 
 
 import com.qfedu.shop.entity.UserPoints;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserPointsMapper {
     int deleteByPrimaryKey(Integer id);
@@ -15,4 +16,6 @@ public interface UserPointsMapper {
     int updateByPrimaryKeySelective(UserPoints record);
 
     int updateByPrimaryKey(UserPoints record);
+
+    int updatePoints(@Param("uid") int uid,@Param("score") int score);
 }

@@ -23,7 +23,7 @@
   </delete>
   <insert id="insert" parameterType="com.qfedu.shop.entity.UserLog" useGeneratedKeys="true" keyProperty="id">
     insert into userlog (uid, flag,
-      content, creattime)
+      content, createtime)
     values (#{uid,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER},
       #{content,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP})
   </insert>

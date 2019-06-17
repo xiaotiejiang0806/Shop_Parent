@@ -13,11 +13,30 @@ public class TimeUtil {
         return format;
     }
 
-    //  获取日期字符串
+    //  获取当前日期字符串
     public static String getDate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String format = simpleDateFormat.format(new Date());
         return format;
+    }
+
+    //  获取日期字符串
+    public static String getFormatDate(Date date){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = simpleDateFormat.format(date);
+        return format;
+    }
+
+    /**
+     *  计算N年之后的时间
+     * @param year
+     *          N年
+     * @return
+     */
+    public static Date getYears(int year){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR,year);
+        return calendar.getTime();
     }
 
     /**
@@ -43,6 +62,7 @@ public class TimeUtil {
         calendar.add(Calendar.MONTH,months);
         return calendar.getTime();
     }
+
 
     /**
      *  N分钟后
@@ -70,4 +90,22 @@ public class TimeUtil {
             return 0;
         }
     }
+
+    /**
+     *  获取当前天数和指定天数的距离天数
+     * @param date
+     * @return
+     */
+    public static int getDistanceDays(Date date){
+        Calendar instance = Calendar.getInstance();
+        long l = instance.getTime().getTime() / 1000 / 24 / 3600 - date.getTime() / 1000 / 24 / 3600;
+        return (int) l;
+
+    }
+
+  /*  public static void main(String[] args) {
+        Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.DAY_OF_MONTH ,-5);
+        System.out.println(getDistanceDays(instance.getTime()));
+    }*/
 }

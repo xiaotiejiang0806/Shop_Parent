@@ -2,6 +2,7 @@ package com.qfedu.shop.loginapi.service;
 
 import com.qfedu.common.vo.R;
 import com.qfedu.shop.entity.User;
+import com.qfedu.shop.entity.UserDetail;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,4 +20,10 @@ public interface UserService {
 
     @GetMapping("/user/checkphone.do")
     public R check(@RequestParam String phone);
+
+    @PostMapping("/user/updatePass.do")
+    public R updatePass(@RequestParam("token") String token,@RequestParam("pass") String pass);
+
+    @PostMapping("/user/updateInfo.do")
+    public R updateDet(@RequestParam("token") String token,@RequestBody UserDetail userDetail);
 }

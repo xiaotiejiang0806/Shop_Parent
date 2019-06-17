@@ -106,13 +106,11 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.qfedu.shop.entity.UserDetail">
     update userdetail
-    set uid = #{uid,jdbcType=INTEGER},
+    set
       nickname = #{nickname,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE},
-      sex = #{sex,jdbcType=SMALLINT},
-      headurl = #{headurl,jdbcType=VARCHAR},
-      createtime = #{createtime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+      sex = #{sex,jdbcType=SMALLINT}
+    where uid = #{uid,jdbcType=INTEGER}
   </update>
   <insert id="insertinituser" parameterType="int">
     insert into userdetail (uid,createtime) values(#{uid},now())

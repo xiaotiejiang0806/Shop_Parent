@@ -79,4 +79,8 @@
       currscore = #{currscore,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updatePoints">
+    update userpoints set totalscore = totalscore + #{score},currscore = currscore + #{score} where uid = #{uid}
+  </update>
 </mapper>

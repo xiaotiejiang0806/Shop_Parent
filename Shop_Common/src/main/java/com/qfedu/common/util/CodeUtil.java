@@ -23,7 +23,7 @@ public class CodeUtil {
     public static void main(String[] args) {
         //System.out.println(createCode(4));
         for(int i=1;i<10001;i++){
-            int n=createNum(4);
+            int n=createCode(4);
             if(n<1000 || n>=10000) {
                 System.out.println(n);
             }

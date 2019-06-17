@@ -2,6 +2,7 @@ package com.qfedu.shop.server.user.dao;
 
 
 import com.qfedu.shop.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface UserMapper {
     List<User> all();
 
     User findUserByPhone(String phone);
+
+    int updatePass(@Param("id") int id,@Param("pass") String pass);
 }

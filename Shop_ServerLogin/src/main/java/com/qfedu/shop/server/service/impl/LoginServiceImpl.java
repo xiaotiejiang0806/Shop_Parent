@@ -60,7 +60,7 @@ public class LoginServiceImpl implements LoginService {
                     String token = JwtUtil.createJWT(loginToken.getId(), JSON.toJSONString(loginToken));
                     //  将token放在redis中
                     jedisUtil.setex(ProjectConfig.TOKENPHONE + phone,1800,token);
-                    jedisUtil.setex(ProjectConfig.TOKENJWT + token,1800,phone);
+                    jedisUtil.setex(ProjectConfig.TOKENJWT + token,1800,JSON.toJSONString(user));
                     loginDao.saveLog(user.getId(),"登录成功，生成令牌");
                     r = R.setOK("登录成功",token);
                 }else {
