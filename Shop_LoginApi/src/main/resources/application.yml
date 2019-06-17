@@ -7,3 +7,6 @@ spring:
     name: ApiDataConsumer
 server:
   port: 9802
+hystrix:
+  metrics:
+    polling-interval-ms: 5000

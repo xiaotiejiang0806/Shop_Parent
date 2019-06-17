@@ -115,4 +115,23 @@
   <insert id="insertinituser" parameterType="int">
     insert into userdetail (uid,createtime) values(#{uid},now())
   </insert>
+
+  <update id="updateByUidSelective" parameterType="com.qfedu.shop.entity.UserDetail">
+    update userdetail
+    <set>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="headurl != null">
+        headurl = #{headurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid}
+  </update>
 </mapper>

@@ -104,7 +104,7 @@ public class UserServiceImpl implements UserService  {
     public R updateInfo(UserDetail userDetail,String token) {
         int uid = UserTokenUtil.parseTokenId(jedisUtil.get(ProjectConfig.TOKENJWT + token));
         userDetail.setUid(uid);
-        userDetailMapper.updateByPrimaryKey(userDetail);
+        userDetailMapper.updateByUidSelective(userDetail);
         return R.setOK("更新成功",null);
     }
 
