@@ -5,13 +5,12 @@ import java.util.Random;
 /**
  * @ Author     ：Demos
  * @ Date       ：Created in 19:55 2019/6/15
- * @ Description：${description}
  */
 public class RandomUtil {
 
     public static  int creatScore(int start,int end){
         Random random = new Random();
-        return random.nextInt((end -start) +start);
+        return random.nextInt((end - start) + start);
     }
 
     /*public static void main(String[] args) {

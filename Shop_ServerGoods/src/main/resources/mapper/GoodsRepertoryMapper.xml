@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.shop.server.goods.dao.GoodsRepertoryMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.shop.entity.GoodsRepertory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="gpid" jdbcType="INTEGER" property="gpid" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, gpid, count
+  </sql>
+  <insert id="insert" parameterType="com.qfedu.shop.entity.GoodsRepertory">
+    insert into goodsrepertory (gpid, count
+      )
+    values (#{gpid,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}
+      )
+  </insert>
+
+  <update id="updateCount">
+    update goodsrepertory
+    set
+      count = #{count,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
