@@ -9,3 +9,4 @@ spring:
     allow-bean-definition-overriding: true
 server:
   port: 9801
+

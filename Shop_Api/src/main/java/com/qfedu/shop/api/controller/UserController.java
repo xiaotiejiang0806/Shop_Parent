@@ -18,6 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @ Author     ：Demos
+ * @ Date       ：Created in 11:45 2019/6/20
+ * @ Description：${description}
+ */
 @RestController
 @Api(value = "用户相关操作",tags = "用户相关操作")
 public class UserController {
@@ -26,7 +31,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-   private DateConverter dateConverter;
+    private DateConverter dateConverter;
 
     @ApiOperation(value = "添加一个新用户",notes = "添加一个新用户并初始化相关参数")
     @PostMapping("/api/adduser.do")
@@ -43,7 +48,7 @@ public class UserController {
     @ApiOperation(value = "核对手机号",notes = "核对手机号是否已经使用")
     @GetMapping("/api/checkphone.do")
     public R checkPhone(String phone){
-      return   userService.check(phone);
+        return   userService.check(phone);
     }
 
     @ApiOperation(value = "更新密码",notes = "更新密码")
@@ -54,7 +59,7 @@ public class UserController {
     }
     @ApiOperation(value = "更新用户详情",notes = "更新用户详情")
     @PostMapping("/api/updateInfo.do")
-    public R updateDet(String token,UserDetail userDetail){
+    public R updateDet(String token, UserDetail userDetail){
         R r = userService.updateDet(token,userDetail);
         return r;
     }

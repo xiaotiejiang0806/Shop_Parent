@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @ Author     ：Demos
- * @ Date       ：Created in 21:24 2019/6/15
+ * @ Date       ：Created in 11:44 2019/6/20
  * @ Description：${description}
  */
 @FeignClient(name = "UserProvider")
-public interface UserSinginService {
+public interface UserSingnService {
 
     @PostMapping("/usersingn/save.do")
     public R save (@RequestParam("token") String token);

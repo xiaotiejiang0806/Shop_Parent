@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * @ Author     ：Demos
- * @ Date       ：Created in 20:18 2019/6/19
+ * @ Date       ：Created in 11:36 2019/6/20
  * @ Description：${description}
  */
 @FeignClient(name = "GoodsProvider")

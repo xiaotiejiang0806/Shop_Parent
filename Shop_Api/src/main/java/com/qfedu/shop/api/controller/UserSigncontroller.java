@@ -2,7 +2,7 @@ package com.qfedu.shop.api.controller;
 
 import com.qfedu.common.config.ProjectConfig;
 import com.qfedu.common.vo.R;
-import com.qfedu.shop.api.service.UserSinginService;
+import com.qfedu.shop.api.service.UserSingnService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ Author     ：Demos
- * @ Date       ：Created in 21:25 2019/6/15
+ * @ Date       ：Created in 11:46 2019/6/20
  * @ Description：${description}
  */
 @RestController
 @Api(value = "签到相关",tags = "签到相关操作")
-public class UserSinginController {
+public class UserSigncontroller {
 
     @Autowired
-    private UserSinginService userSingnService;
+    private UserSingnService userSingnService;
 
 
     @ApiOperation(value = "签到",notes = "签到操作")

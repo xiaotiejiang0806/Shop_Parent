@@ -11,11 +11,12 @@ import java.util.List;
 
 /**
  * @ Author     ：Demos
- * @ Date       ：Created in 21:25 2019/6/17
+ * @ Date       ：Created in 11:33 2019/6/20
  * @ Description：${description}
  */
+
 @Component
-public class DateConverter implements Converter<String, Date> {
+public class DateConverter implements Converter<String,Date> {
     private static final List<String> formarts = new ArrayList<>(4);
 
     static{
