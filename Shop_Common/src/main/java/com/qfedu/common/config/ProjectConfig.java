@@ -38,6 +38,17 @@ public class ProjectConfig {
     public static final String TOKENHEAD = "usertoken";
     //签到相关
     public static final String SINGKEY="singkey";
+    //ES使用
+    public static final String ESGOODSADD="ESGOODSADD";
+    public static final String ESGOODSADDBU="ESGOODSADDBU";
+    public static final String ESGOODSUPDATE="ESGOODSUPDATE";
+    public static final String ESGOODSUPDATEBU="ESGOODSUPDATEBU";
+    public static final String ESGOODSDEL="ESGOODSDEL";
+    public static final String ESGOODSDELBU="ESGOODSDELBU";
+
+
+
+
 
     //短信相关
     //Redis常用的key的设置

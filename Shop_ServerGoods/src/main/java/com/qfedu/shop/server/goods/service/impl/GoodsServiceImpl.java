@@ -10,6 +10,7 @@ import com.qfedu.shop.server.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,17 +31,28 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public R querryAll(Map<String, String> map) {
+    public R querryAll(Map<String, Object> map) {
 
-        int page=Integer.parseInt(map.get("page"));
-        int count=Integer.parseInt(map.get("count"));
-        Page<GoodsListDto> pageObj= PageHelper.startPage(page,count);
+        int page=Integer.parseInt(map.get("page").toString());
+        int count=Integer.parseInt(map.get("count").toString());
+        PageBean<GoodsListDto> pageBean = new PageBean();
+
+        PageHelper.startPage(page,count);
+        List<GoodsListDto> goodList = goodsMapper.findGoodList(map);
+
+        pageBean.setData(goodList);
+        pageBean.setCurrPage(page);
+        pageBean.setCount(count);
+        pageBean.setTotalPage(((Page)goodList).getPages());
+        pageBean.setTotalCount((int) ((Page) goodList).getTotal());
+
+        /*Page<GoodsListDto> pageObj= PageHelper.startPage(page,count);
         PageBean<GoodsListDto> pageBean=new PageBean();
         pageBean.setCount(count);
         pageBean.setCurrPage(page);
         pageBean.setTotalCount((int)pageObj.getTotal());
         pageBean.setTotalPage(pageObj.getPages());
-        pageBean.setData(pageObj.getResult());
+        pageBean.setData(pageObj.getResult());*/
         return R.setOK("OK",pageBean);
     }
 

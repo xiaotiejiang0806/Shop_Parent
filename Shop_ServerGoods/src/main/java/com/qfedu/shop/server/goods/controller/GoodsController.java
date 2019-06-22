@@ -20,7 +20,7 @@ public class GoodsController {
 
 
     @PostMapping("/goods/findAll.do")
-    public R findGoodListByGtid(@RequestBody Map<String,String> map){
+    public R findGoodListByGtid(@RequestBody Map<String,Object> map){
         return goodsService.querryAll(map);
     }
 

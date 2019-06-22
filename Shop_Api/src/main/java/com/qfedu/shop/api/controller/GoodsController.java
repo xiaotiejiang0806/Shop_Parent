@@ -23,7 +23,7 @@ public class GoodsController {
 
     @ApiOperation(value = "商品列表",notes = "根据提供的信息查询商品的二级列表")
     @PostMapping("/goods/findAll.do")
-    public R findGoodListByGtid(@RequestBody Map<String,String> map){
+    public R findGoodListByGtid(@RequestBody Map<String,Object> map){
         return goodsService.findGoodListByGtid(map);
     }
 

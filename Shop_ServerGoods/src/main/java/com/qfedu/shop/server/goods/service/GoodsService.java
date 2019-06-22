@@ -13,7 +13,7 @@ public interface GoodsService {
 
     R querryIndexNew();
 
-    R querryAll(Map<String,String> map);
+    R querryAll(Map<String,Object> map);
 
     R querryDetail(int id);
 }

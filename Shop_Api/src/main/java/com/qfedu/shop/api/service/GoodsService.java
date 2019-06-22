@@ -18,7 +18,7 @@ import java.util.Map;
 public interface GoodsService {
 
     @PostMapping("/goods/findAll.do")
-    public R findGoodListByGtid(@RequestBody Map<String,String> map);
+    public R findGoodListByGtid(@RequestBody Map<String,Object> map);
 
 
     @GetMapping("/goods/findDetail.do")
